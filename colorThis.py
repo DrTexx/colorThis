@@ -26,8 +26,8 @@ def ct(string,**kwargs): # define main function
         output = "".join(tempString) # convert the output array into a string
         return(output)
     except: # if function did not run as intended, return the string without formatting
-        print("something went wrong while running colorThis.ct()...")
-        print("returning a normal string...")
+        if(debug): print("something went wrong while running colorThis.ct()...")
+        if(debug): print("returning a normal string...")
         return(string)
 
 #print(ct("hello",Back="RED"))
