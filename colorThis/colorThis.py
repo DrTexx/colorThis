@@ -4,13 +4,13 @@ colorThis by Denver P.
 Adapted implementation of Colorama
 """
 
-try: # try to fix the escape sequences so they work in windows 10 console
-    import os # used to allow win32 console to recognize ANSI/VT100 escape sequences
-    os.system('') # stops formatting from appearing as "[41m[33m" and the like
-except: raise Exception("couldn't apply fix for ANSI/VT100 escape sequence recognition under Win32 console in Windows 10")
-
 def ct(my_string,**kwargs): # define main function
     ''' EXAMPLE: ct("hello",Back="RED") '''
+    
+    try: # try to fix the escape sequences so they work in windows 10 console
+        import os # used to allow win32 console to recognize ANSI/VT100 escape sequences
+        os.system('') # stops formatting from appearing as "[41m[33m" and the like
+    except: raise Exception("couldn't apply fix for ANSI/VT100 escape sequence recognition under Win32 console in Windows 10")
     
     # attempt to import colorama
     coloramaImported = False
@@ -100,39 +100,5 @@ def ct(my_string,**kwargs): # define main function
         if(showErrors): print("colorama could not be imported... maybe it isn't installed? Maybe you're running 64-bit instead of 32-bit?")
         if(showErrors): print("returning a normal string...")
         return(my_string)
-
-#import time
-# Print the string without showing errors
-#print(ct("hello",Back="RED",Fore="WHITE",showErrors=False))
-#print()
-#time.sleep(1)
-
-# Print the string with default settings
-#print(ct("hello",Back="RED",Fore="WHITE"))
-#print()
-#time.sleep(1)
-
-# Print the string with debugging active
-#print(ct("hello",Back="RED",Fore="WHITE",debug=True))
-
-
-"""
-def ctn(*args,**kwargs): # WIP revised version
     
-    for my_list in args: # for each list encountered
-        
-        if type(my_list) == type(['test','list']):
-            
-            print("it's a list!")
-            
-            for my_item in my_list:
-                
-                if type(my_item) == type('a string'):
-                    
-                    print(my_item,'is a string!')
-                    
-                elif type(my_item) == type(Back='RED'):
-                    
-                    print(my_item,'is a keyword!')
-"""
-
+    
