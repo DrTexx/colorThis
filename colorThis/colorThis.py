@@ -4,21 +4,20 @@ colorThis by Denver P.
 Adapted implementation of Colorama
 """
 
+import os # used to allow win32 console to recognize ANSI/VT100 escape sequences
+os.system('') # stops formatting from appearing as "[41m[33m" and the like
+#except: raise Exception("couldn't apply fix for ANSI/VT100 escape sequence recognition under Win32 console in Windows 10")
+    
+# attempt to import colorama
+coloramaImported = False
+try:
+    import colorama # library used for colouring
+    coloramaImported = True
+except:
+    pass
+
 def ct(my_string,**kwargs): # define main function
     ''' EXAMPLE: ct("hello",Back="RED") '''
-    
-    try: # try to fix the escape sequences so they work in windows 10 console
-        import os # used to allow win32 console to recognize ANSI/VT100 escape sequences
-        os.system('') # stops formatting from appearing as "[41m[33m" and the like
-    except: raise Exception("couldn't apply fix for ANSI/VT100 escape sequence recognition under Win32 console in Windows 10")
-    
-    # attempt to import colorama
-    coloramaImported = False
-    try:
-        import colorama # library used for colouring
-        coloramaImported = True
-    except:
-        pass
     
     functionKWs = ['debug','autoReset','showErrors'] # List of keywords that change how this function executes
     styleKWs = ['Back','Fore','Style'] # list of classes from colorama that are compatible by this function
