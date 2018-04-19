@@ -76,6 +76,8 @@ def ct_hex(my_string,hex_color,**kwargs):
     # thanks to Ican for his answer on stackoverflow: https://stackoverflow.com/a/41063750/5619653
 
 def ct_rgb(my_string,r,g,b,**kwargs):
+    ''' change terminal text colour to an RGB value'''
+    
     autoReset=True
     if 'autoReset' in kwargs: autoReset = kwargs['autoReset'] # store value of autoReset if found in kwargs
     
@@ -84,22 +86,24 @@ def ct_rgb(my_string,r,g,b,**kwargs):
     
     return(out)
     
-print(ct("defined colour",Fore="RED"))
-print("normal text")
-print(ct_hex("hex colour!",'#f57c00'))
-print("normal text")
-print(ct_rgb("rgb colors",255,0,0))
-print("normal text")
-
-import time
-def ct_grad(char='.',duration=1,instances=16,time_div_dec_places=8):
-    x = 1
-    while(x < 255):
-        time.sleep(round(duration/instances,time_div_dec_places))
-        print(ct_rgb(char,0,x,0),end='',flush=True)
-        x += int(255/instances)
-    return('')
-        
-print(ct_grad('.',1,16))
-print("HEHELLO")
-print("HEHELLO")
+def runTest():
+    print(ct("defined colour",Fore="RED"))
+    print("normal text")
+    print(ct_hex("hex colour!",'#f57c00'))
+    print("normal text")
+    print(ct_rgb("rgb colors",255,0,0))
+    print("normal text")
+    
+    import time
+    def ct_grad(char='.',duration=1,instances=16,time_div_dec_places=8):
+        x = 1
+        while(x < 255):
+            time.sleep(round(duration/instances,time_div_dec_places))
+            print(ct_rgb(char,0,x,0),end='',flush=True)
+            x += int(255/instances)
+        return('')
+            
+    print(ct_grad('.',1,16))
+    print("HEHELLO")
+    print("HEHELLO")
+    
