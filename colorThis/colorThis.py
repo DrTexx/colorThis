@@ -32,7 +32,7 @@ def ct(my_string,**kwargs): # define main function
     
     tempString = []
     
-    def printTempString(): # Functiaon to print the value of tempString in a formatted manner
+    def printTempString(): # Function to print the value of tempString in a formatted manner
         if(debug): print("{:-<12}: {}".format('tempString',tempString)) # Print what tempString looks like so far
     
     if (coloramaImported): # if colorama imported successfully
